@@ -16,7 +16,7 @@
 
       return () => clearInterval(interval);
     }
-    else if (timer <= 0) { // alarm / notify
+    else if (timer <= 0) {
       {timeUp}
     }
   });
@@ -50,8 +50,8 @@
   <div class="timer_outline">
     <p>{ms_to_hr(timer)}:{ms_to_min(timer)}:{ms_to_sec(timer)}</p>
   </div>
-	
-  <button onclick={toggle_pause} class="pause_button">
+   <p>{timer}</p>	
+  <button onclick={toggle_pause} class="custom_button">
     {#if paused}
       Resume
     {:else }
@@ -59,7 +59,7 @@
     {/if}  
   </button>
   {#if paused}
-    <button onclick={timeAdd}>Add Time</button>
+    <button onclick={timeAdd} class="custom_button">Add Time</button>
   {/if}
 
 </div>
@@ -73,7 +73,7 @@
   margin: calc(var(--spacing) * 3);
   }
 
-  .pause_button {
+  .custom_button{
   border-radius: var(--radius-lg);
   outline-style: solid;
   margin: calc(var(--spacing) * 2);
