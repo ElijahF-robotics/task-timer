@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/svelte';
 import { describe, it, expect } from 'vitest';
 import '@testing-library/jest-dom';
-import Navbar from './Navbar.svelte';
+import Navbar from '../src/lib/Navbar.svelte';
 
 describe('Navbar Component', () => {
 

@@ -78,7 +78,7 @@ test('Load Tasks', () => {
     expect(tasks).toEqual(["Task 1", "Task 2", "Task 3", "Task 4"])
 
     // List already has items in it
-    let tasks = ["Task 1", "Task 2"]
+    tasks = ["Task 1", "Task 2"]
 
     loadTasks(tasks)
 
@@ -94,14 +94,14 @@ test('Sort Tasks', () => {
     expect(tasks).toEqual(["Task 1", "Task 2", "Task 3"])
 
     // Empty list
-    let tasks = []
+    tasks = []
 
     sortTasks(tasks)
 
     expect(tasks).toEqual([])
 
     // Pre-sorted list
-    let tasks = ["Task 1", "Task 2", "Task 3"]
+    tasks = ["Task 1", "Task 2", "Task 3"]
 
     sortTasks(tasks)
 
