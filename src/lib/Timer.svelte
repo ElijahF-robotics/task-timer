@@ -2,6 +2,7 @@
 
   let { timer, timeUp, timeAdd } = $props()
   let paused = $state(true)
+  let done = $state(false)
 
   // for testing, use this time var
   // let timer = $state(27165000) // parameter placeholder
@@ -9,15 +10,15 @@
   function toggle_pause() { paused = !paused }
  
  $effect(() => {
-    if (!paused && timer > 0) { // countdown
+    if (!paused && timer > -1) { // countdown past 0 to eval done
+    
       const interval = window.setInterval(() => {
         timer -= 125; // remove 1/4 a second
       }, 125); // for every 1/4 a second
 
+      if (timer <= 0) {done = true}
+
       return () => clearInterval(interval);
-    }
-    else if (timer <= 0) {
-      {timeUp}
     }
   });
 
@@ -60,6 +61,9 @@
   </button>
   {#if paused}
     <button onclick={timeAdd} class="custom_button">Add Time</button>
+  {/if}
+  {#if done}
+    <p>its done</p>
   {/if}
 
 </div>

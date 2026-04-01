@@ -22,7 +22,7 @@
       <!-- left -->
       <div class="m-2 outline-dotted">
         <div class="m-5 outline-hidden rounded">
-          <Timer timer={120000} />
+          <Timer timer={3000} />
           <!-- <p class="text-8xl">00:00:00</p> -->
           <!-- <Button text="Play"/> -->
           <!-- <Button text="Add Time"/> -->
