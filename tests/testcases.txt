@@ -1,0 +1,19 @@
+the unit test tool we are using is Vitest
+
+to see the testcases, do 
+  npm install
+  npm run test
+
+there are other code files in /src/lib/
+   tasks.svelte.test.js
+   timer_functions.svelte.test.js
+
+we cannot put them in the tests folder without Vitest missing the files
+
+for some reason the testcases only want to run for the latter file at the moment.
+i tried the commit where the first file was added and it had all tests passing if i recall correctly
+
+not all tests are passing, it is in active development after all
+
+i hope this is acceptable
+

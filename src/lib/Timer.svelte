@@ -1,10 +1,9 @@
-<script lang="ts">
-
+<script lang="js">
+import { msToHr, msToMin, msToSec, toggle } from './timer_functions.svelte.js';
 // declare variables 
   let { timer } = $props()
   let paused = $state(true)
   // let timer = $state(27165000) // parameter placeholder
-  // need to make sound / notification for done in future 
 
 // accessors cause runes are weird
   const is_paused = () => {return paused} 
@@ -14,7 +13,6 @@
 	let later = now + get_time()
 
 // mutators
-  function toggle_pause() { paused = !paused }
 
  $effect(() => {
     if (!paused && timer > 0) { // only countdown if unpaused
@@ -26,35 +24,12 @@
     }
   });
 
-  // OUTPUT
-
-  // weird situational floor helper function
-  function floor (number) { return number = number - number%1 }
-
-  // for printing time as hour minute second from ms
-  function ms_to_hr(ms) {
-		let hr = floor(ms/3600000)
-		return hr
-	}
-	
-  function ms_to_min(ms) {
-		let min = floor((ms%3600000)/60000)
-		if (min < 10) { return '0' + min }
-		else { return min }
-	}
-	
-  function ms_to_sec(ms) {
-		let sec = floor((ms%60000)/1000)
-		if (sec < 10) { return '0' + sec }
-		else { return sec}
-	}
-
 </script>
 
 <div class="flex flex-col">
-	<h1>{ms_to_hr(timer)}:{ms_to_min(timer)}:{ms_to_sec(timer)}</h1>
+	<h1>{msToHr(timer)}:{msToMin(timer)}:{msToSec(timer)}</h1>
 	
-  <button onclick={toggle_pause}>
+  <button onclick={toggle(pause)}>
     {#if paused}
       Resume
     {:else }
@@ -62,9 +37,6 @@
     {/if}  
   </button>
 
-	<button>
-		Mark Done (WIP)
-	</button>
 </div>
 
 
