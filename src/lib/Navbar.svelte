@@ -3,7 +3,7 @@
 	import logo from '$lib/assets/coffee.jpg'
 </script>
 
-<div class="flex flex-row items-center justify-between p-1.5 border-b border-b-gray-500">
+<div class="flex flex-row items-center justify-between p-1.5 border-b border-b-gray-500 fixed top-0 left-0 right-0 z-50">
 	<a href="/"><img src={logo} alt="Placeholder" class="flex-1 h-20 w-auto rounded-2xl" /></a>
 
 	<div class="flex flex-row">
