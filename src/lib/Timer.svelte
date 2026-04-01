@@ -1,11 +1,9 @@
 <script lang="ts">
 
+  // import timer in ms, external functions
   let { timer, timeUp, timeAdd } = $props()
   let paused = $state(true)
   let done = $state(false)
-
-  // for testing, use this time var
-  // let timer = $state(27165000) // parameter placeholder
 
   function toggle_pause() { paused = !paused }
  
@@ -22,6 +20,9 @@
     }
   });
 
+// effects for ending and resetting countdown
+$effect(()=> { if(done) { timeUp() } });
+$effect(()=> { if(done && timer > 0) {done = !done} });
 
   // OUTPUT
   // weird situational floor helper function
@@ -61,9 +62,6 @@
   </button>
   {#if paused}
     <button onclick={timeAdd} class="custom_button">Add Time</button>
-  {/if}
-  {#if done}
-    <p>its done</p>
   {/if}
 
 </div>

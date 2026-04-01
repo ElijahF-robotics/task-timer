@@ -1,7 +1,20 @@
 <script>
   import Button from "$lib/Button.svelte";
   import Timer from "$lib/Timer.svelte";
-  // import clock from "../../lib/assets/clock.png"
+
+  let timer = 3000
+  let done = false
+
+  function timeAdd() {
+    timer += 10000
+    done = false
+  }
+
+  function timeUp() {
+    timer = 0;
+    done = true
+  }
+
 </script>
 
 <!-- todo: -->
@@ -22,10 +35,10 @@
       <!-- left -->
       <div class="m-2 outline-dotted">
         <div class="m-5 outline-hidden rounded">
-          <Timer timer={3000} />
-          <!-- <p class="text-8xl">00:00:00</p> -->
-          <!-- <Button text="Play"/> -->
-          <!-- <Button text="Add Time"/> -->
+          <Timer {timer} {timeAdd} {timeUp}/>
+          {#if done}
+            <p>(external) it done</p>
+          {/if}
         </div>
       </div>
       <!-- right -->
