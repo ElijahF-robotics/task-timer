@@ -1,6 +1,6 @@
 <script>
+  import TypingBar from "$lib/TypingBar.svelte";
   import Button from "$lib/Button.svelte";
-  import Timer from "$lib/Timer.svelte";
   import FocusedTimer from "$lib/FocusedTimer.svelte";
   import UnfocusedTimer from "$lib/UnfocusedTimer.svelte";
 
@@ -28,7 +28,8 @@
 
 
 <!-- the app is vertical in nature -->
-<div class="m-3 outline-none columns-1"> 
+<main class="flex justify-center columns-1"> 
+  <div class="m-3 outline-dotted columns-1 w-3/7 content-center">
   {#if done}
     <h1 class="text-9xl">THE TIMER IS DONE</h1>
   {/if}
@@ -37,10 +38,16 @@
   </div>
   <UnfocusedTimer timer={120000} name={"quick break, hydrate"}></UnfocusedTimer>  
   <UnfocusedTimer timer={3600000} name={"read that one book you hate"} dueMonth={4} dueDay={8} dueYear={2026}></UnfocusedTimer>  
-</div>
+  </div>
+</main>
 
 
 <style>
+  main {
+    background-color: var(--color-amber-400);
+    min-height: 100vh;
+    min-width: 100%
+  }
 </style>
 
 
