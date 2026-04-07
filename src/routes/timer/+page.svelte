@@ -1,6 +1,8 @@
 <script>
   import Button from "$lib/Button.svelte";
   import Timer from "$lib/Timer.svelte";
+  import FocusedTimer from "$lib/FocusedTimer.svelte";
+  import UnfocusedTimer from "$lib/UnfocusedTimer.svelte";
 
   let timer = 3000
   let done = false
@@ -27,61 +29,18 @@
 
 <!-- the app is vertical in nature -->
 <div class="m-3 outline-none columns-1"> 
-
-  <!-- focused timer -->
-  <div class="focusedTaskTimer shadow-[4px_4px_0px_0px_#000]">
-<!-- "flex-col border-black w-7e/10"> -->
-    <!-- invisible, for timer elements -->
-    <div class="m-3e grid grid-cols-2 outline-hidden"> 
-      <!-- left -->
-      <div class="m-2 outline-dotted">
-        <div class="m-5 outline-hidden rounded">
-          <Timer {timer} {timeAdd} {timeUp}/>
-          {#if done}
-            <p>(external) it done</p>
-          {/if}
-        </div>
-      </div>
-      <!-- right -->
-      <div class="unfocusedTaskTimer">
-        <div class="m-2e outline-solid rounded">
-          <h1 class="text-2xl">TASK NAME</h1>
-        </div> 
-        <div class="m-5e outline-solid">
-          <h2>3/4/26</h2>
-          <h2>DESC</h2>
-        </div>
-      </div>
-    </div>
+  {#if done}
+    <h1 class="text-9xl">THE TIMER IS DONE</h1>
+  {/if}
+  <div>
+    <FocusedTimer {timer} {timeAdd} {timeUp} name={"Checkpoint 3"} desc={"idk present again again again or smthn"} dueMonth={4} dueDay={9} dueYear={2026}/>
   </div>
-
-
-
-  <div class="unfocusedTaskTimer">
-    <div class="grid grid-cols-3">
-      <h1>00:00:00</h1>
-      <h1>TASK NAME 2</h1>
-      <h1>4/2/26</h1>
-    </div>
-  </div>
+  <UnfocusedTimer timer={120000} name={"quick break, hydrate"}></UnfocusedTimer>  
+  <UnfocusedTimer timer={3600000} name={"read that one book you hate"} dueMonth={4} dueDay={8} dueYear={2026}></UnfocusedTimer>  
 </div>
 
 
 <style>
-.focusedTaskTimer {
-  margin: calc(var(--spacing) * 5); 
-  border-radius: var(--radius-3xl);
-  background-color: var(--color-cyan-500); 
-  border-width: 2px;
-  flex: auto;
-  }
-
-.unfocusedTaskTimer {
-  border-radius: var(--radius-sm);
-  margin: calc(var(--spacing) * 5);
-  outline: double;
-  flex: col;
-}
 </style>
 
 

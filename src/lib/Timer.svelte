@@ -1,12 +1,10 @@
-<script lang="ts">
+<script lang="js">
+  import { msToHr, msToMin, msToSec} from './timer_functions.svelte.js';
 
-  // import timer in ms, external functions
   let { timer, timeUp, timeAdd } = $props()
   let paused = $state(true)
   let done = $state(false)
 
-  function toggle_pause() { paused = !paused }
- 
  $effect(() => {
     if (!paused && timer > -1) { // countdown past 0 to eval done
     
@@ -20,40 +18,18 @@
     }
   });
 
-// effects for ending and resetting countdown
-$effect(()=> { if(done) { timeUp(); paused = true} });
-$effect(()=> { if(done && timer > 0) {done = !done} });
-
-  // OUTPUT
-  // weird situational floor helper function
-  function floor (number) { return number = number - number%1 }
-
-  // for printing time as hour minute second from ms
-  function ms_to_hr(ms) {
-		let hr = floor(ms/3600000)
-		return hr
-	}
-	
-  function ms_to_min(ms) {
-		let min = floor((ms%3600000)/60000)
-		if (min < 10) { return '0' + min }
-		else { return min }
-	}
-	
-  function ms_to_sec(ms) {
-		let sec = floor((ms%60000)/1000)
-		if (sec < 10) { return '0' + sec }
-		else { return sec}
-	}
-
+  // effects for ending and resetting countdown
+  $effect(()=> { if(done) { timeUp(); paused = true} });
+  $effect(()=> { if(done && timer > 0) {done = !done} });
 </script>
+
+
 
 <div>
   <div class="timer_outline">
-    <p>{ms_to_hr(timer)}:{ms_to_min(timer)}:{ms_to_sec(timer)}</p>
+    <p>{msToHr(timer)}:{msToMin(timer)}:{msToSec(timer)}</p>
   </div>
-   <!-- <p>{timer}</p>	 -->
-  <button onclick={toggle_pause} class="custom_button">
+  <button onclick={paused = !paused} class="custom_button">
     {#if paused}
       Resume
     {:else }
@@ -65,6 +41,7 @@ $effect(()=> { if(done && timer > 0) {done = !done} });
   {/if}
 
 </div>
+
 
 
 <style>
