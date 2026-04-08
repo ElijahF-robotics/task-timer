@@ -8,6 +8,7 @@
   let done = $state(false); // for timeUp
   let audio;
 
+  //Creates the audio client side
   $effect(() => {
     audio = new Audio(audioPath);
   });
@@ -34,8 +35,10 @@
     }
   });
 
+  //If time was added but it ended, it is labeled as not done
   $effect(()=> { if(done && timer > 0) {done = false} });
 
+  //Adds 5 minutes back to the timer.
   function timeAdd() {
     timer += 300000;
 
