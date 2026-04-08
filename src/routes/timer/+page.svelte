@@ -29,10 +29,11 @@
 
 <!-- the app is vertical in nature -->
 <main class="flex justify-center columns-1"> 
-  <div class="m-3 outline-dotted columns-1 w-3/7 content-center">
+  <!-- pw-3/7 -->
   {#if done}
-    <h1 class="text-9xl">THE TIMER IS DONE</h1>
+    <h1 class="text-9xl content-center text-center">THE TIMER IS DONE</h1>
   {/if}
+  <div class="m-3 outline-hidden content-center">
   <div>
     <FocusedTimer {timer} {timeAdd} {timeUp} name={"Checkpoint 3"} desc={"idk present again again again or smthn"} dueMonth={4} dueDay={9} dueYear={2026}/>
   </div>

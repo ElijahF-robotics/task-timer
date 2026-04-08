@@ -25,7 +25,7 @@
 
 
 
-<div>
+<div class="justify-center content-center text-center">
   <div class="timer_outline">
     <p>{msToHr(timer)}:{msToMin(timer)}:{msToSec(timer)}</p>
   </div>
@@ -34,7 +34,7 @@
       Resume
     {:else }
       Pause
-    {/if}  
+    {/if}
   </button>
   {#if paused}
     <button onclick={timeAdd} class="custom_button">Add Time</button>
@@ -46,21 +46,22 @@
 
 <style>
   .timer_outline {
-  margin: calc(var(--spacing) * 3);
-  outline-style: solid;
-  border-radius: var(--radius-lg);
-  background-color: var(--color-white); 
-  font-size: var(--text-7xl);
-  box-shadow: 8px_8px_0px_0px_#000;
+    outline-style: solid;
+    border-radius: var(--radius-lg);
+    box-shadow: 8px_8px_0px_0px_#000;
+    margin: calc(var(--spacing) * 2);
+    background-color: var(--color-white); 
+    font-size: var(--text-7xl);
+    text-align: center;
   }
 
   .custom_button{
-  box-shadow: 1px_1px_0px_0px_#000;
-  background-color: var(--color-white); 
-  border-radius: var(--radius-lg);
-  outline-style: solid;
-  margin: calc(var(--spacing) * 4);
-  padding: px-3;
+    outline-style: solid;
+    border-radius: var(--radius-lg);
+    box-shadow: 1px_1px_0px_0px_#000;
+    margin: calc(var(--spacing) * 4);
+    background-color: var(--color-white); 
+    font-size: var(--text-2xl);
   }
 
 </style>
