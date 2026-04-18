@@ -1,7 +1,7 @@
 <script lang="js">
   import { msToHr, msToMin, msToSec} from './timer_functions.svelte.js';
 
-  let { timer, timeUp, timeAdd } = $props()
+  let { timer, timeUp, timeAdd } = $props(); // timeAdd requires focus_timer jank
   let paused = $state(true)
   let done = $state(false)
 
@@ -12,17 +12,23 @@
         timer -= 125; // remove 1/4 a second
       }, 125); // for every 1/4 a second
 
-      if (timer <= 0) {done = true}
+      if (timer <= 0) {done = true} // and sets done when done
 
       return () => clearInterval(interval);
     }
   });
 
-  // effects for ending and resetting countdown
-  $effect(()=> { if(done) { timeUp(); paused = true} });
+  // for ending countdown
+  $effect(()=> {
+    if(done) {
+      timeUp();
+      paused = true;
+    }
+  });
+
+  // reset done flag when not done
   $effect(()=> { if(done && timer > 0) {done = !done} });
 </script>
-
 
 
 <div class="justify-center content-center text-center">

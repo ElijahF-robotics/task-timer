@@ -6,6 +6,7 @@
   // need to add buttons for edit, delete, and checkbox functionality
   // need to add draggable element library for the draggable bars
   // apparently sound works for timer so pass that too
+  // need to Make timeAdd consider the elapsed time
 </script>
 
 <div>
