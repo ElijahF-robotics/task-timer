@@ -104,3 +104,10 @@ test('msToSec Error', () => {
 });
 
 // removed toggle with toggle tests, was not function worthy
+
+// need more tests here
+// test for days, days from 1 to 0, and something random for error case
+// test for weeks, weeks from 1 to 0, and something random for error case
+// test for years, years from 0 to 1 and 4-3 (leap year), and some random error case
+
+// not today but soon
