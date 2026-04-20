@@ -10,7 +10,7 @@
 
 <Nav></Nav>
 
-<div class="flex w-screen h-screen justify-center items-center bg-gray-100">
+<div class="min-h-screen w-screen bg-gray-100">
 	{@render children()}
 </div>
 
