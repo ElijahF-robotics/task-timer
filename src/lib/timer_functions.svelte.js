@@ -54,9 +54,7 @@ export function msToWeeks(ms) {
 // if anyone needs a unit past years, they need to make their own app
 // we are a general use timer, we use the colloquial norm of discrete numbered days in a year
 export function msToYears(ms) {
-  if (ms < 0) {return `00`}
+  if (ms < 0) {return `0`}
   const ms_per_year = 31449600000
-  if (ms/ms_per_year < 3) {
-    return floor(ms / ms_per_year);
-  }
+  return floor(ms / ms_per_year);
 }

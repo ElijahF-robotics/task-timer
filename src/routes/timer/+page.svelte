@@ -4,7 +4,11 @@
   import FocusedTimer from "$lib/FocusedTimer.svelte";
   import UnfocusedTimer from "$lib/UnfocusedTimer.svelte";
 
-  let timer = 3000
+  let timer = 71902780000
+  // let timer = 31449600000
+  // let timer = 3000
+
+
   let done = false
 
   function timeAdd() {

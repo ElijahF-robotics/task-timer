@@ -12,14 +12,14 @@ test('Floor Main', () => {
 	let number = 1.5
   let floored = floor(number)
 
-    expect(floored).toEqual(1)
+  expect(floored).toEqual(1)
 });
 
 test('Floor Edge', () => {
 	let number = 1
   let floored = floor(number)
 
-    expect(floored).toEqual(1)
+  expect(floored).toEqual(1)
 });
 
 // this case is necessary now
@@ -27,9 +27,8 @@ test('Floor Error', () => {
 	let number = '-1.5'
   let floored = floor(number)
 
-    expect(floored).toEqual(-1)
+  expect(floored).toEqual(-1)
 });
-
 
 
 test('msToHr Main', () => {
@@ -53,7 +52,6 @@ test('msToHr Error', () => {
 
   expect(hours).toEqual('00')
 });
-
 
 
 test('msToMin Main', () => {
