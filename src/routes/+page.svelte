@@ -3,9 +3,11 @@
   import Button from "$lib/Button.svelte";
   import FocusedTimer from "$lib/FocusedTimer.svelte";
   import UnfocusedTimer from "$lib/UnfocusedTimer.svelte";
+  // import audioPath from '$../../static/timeup2-bad.mp3';
 
   let timer = 3000
   let done = false
+  // let audio = new Audio(audioPath);
 
   function timeAdd() {
     timer += 10000
@@ -14,7 +16,8 @@
 
   function timeUp() {
     timer = 0;
-    done = true
+    done = true;
+    // audio?.play();
   }
 
 </script>

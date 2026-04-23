@@ -1,16 +1,13 @@
 <script lang="js">
   import { msToHr, msToMin, msToSec} from './timer_functions.svelte.js';
-  import audioPath from '$lib/sounds/alarm.mp3';
 
   // pass props timer in ms and external functions
   let { timer, timeAdd, timeUp } = $props();
   let paused = $state(true);
   let done = $state(false); // for timeUp
-  let audio;
 
   //Creates the audio client side
   $effect(() => {
-    audio = new Audio(audioPath);
   });
 
   // countdown logic
@@ -22,16 +19,6 @@
         return () => clearInterval(interval);
       }
     });
-
-  // effects for ending and resetting countdown
-  $effect(()=> {
-    if(timer <= 0 && !done) {
-      done = true;
-      paused = true;
-      audio?.play();
-      timeUp();
-    }
-  });
 
   // effects for ending and resetting countdown
   $effect(()=> { if(done) { timeUp(); paused = true} });
