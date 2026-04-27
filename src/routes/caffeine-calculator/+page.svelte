@@ -16,7 +16,7 @@
 	//Sets the intake methods and automatically selects coffee
 	let intake = [
 		{ title: "Coffee", label: "Cups of Coffee", concentration: 90 },
-		{ title: "Redbull", label: "Redbulls", concentration: 111 },
+		{ title: "RedBull", label: "RedBulls", concentration: 111 },
 		{ title: "Soda", label: "Cans of Soda", concentration: 40 }
 	];
 	let selectedIntake = $derived(intake.at(0).title);
