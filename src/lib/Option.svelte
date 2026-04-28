@@ -1,31 +1,24 @@
 <script>
     import SubList from '$lib/SubList.svelte';
 
-    var {optionName} = $props();
+    var {optionName, options, optionFunctions=[]} = $props();
 
     let showDropdown = $state(false);
 
     function toggleDropdown() {
         showDropdown = !showDropdown;
     }
-
-    let accountSettings = ["Profile", "Security", "Log Out"];
-    let accessibilitySettings = ["Dark Mode", "Military Time"];
 </script>
 
 <div class="flex flex-col items-center justify-start p-4 bg-white w-2xl">
     <div class="flex flex-row justify-between w-full">
         {optionName}
 
-        <button class="cursor-pointer" onclick={toggleDropdown}>&#8615;</button>
+        <!-- <button class="cursor-pointer" onclick={toggleDropdown}>&#8615;</button> -->
     </div>
-    
+    {#if true}
+        <SubList {options} {optionFunctions} />
 
-    {#if showDropdown && optionName === "Account Settings"}
-        <SubList options={accountSettings} />
-
-    {:else if showDropdown && optionName === "Accessibility"}
-        <SubList options={accessibilitySettings} />
     {/if}
 </div>
 
