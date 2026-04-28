@@ -17,7 +17,6 @@
         <!-- <button class="cursor-pointer" onclick={toggleDropdown}>&#8615;</button> -->
     </div>
     {#if true}
-
         <SubList {options} {optionFunctions} />
 
     {/if}

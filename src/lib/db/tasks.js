@@ -1,7 +1,10 @@
 // Get the tasks
 //      supabase: SuperbaseClient
 //      userId: UUID
-export async function getTasks(supabase, userId) {
+export async function getTasks(
+  supabase, 
+  userId
+) {
   const { data, error } = await supabase
     .from('tasks')
     .select('*')
@@ -15,7 +18,10 @@ export async function getTasks(supabase, userId) {
 // Get the task with the given id
 //      supabase: SuperbaseClient
 //      taskId: UUID
-export async function getTaskById(supabase, taskId) {
+export async function getTaskById(
+  supabase, 
+  taskId
+) {
   const { data, error } = await supabase
     .from('tasks')
     .select('*')
@@ -44,4 +50,16 @@ export async function getTasksByCompletion(
 
   if (error) throw error
   return data
+}
+
+// Remove task given id
+export async function removeTask(
+  supabase,
+  taskId
+) {
+  const { error } = await supabase
+    .from("tasks")
+    .delete()
+    .eq('id', taskId)
+  if (error) throw error
 }
